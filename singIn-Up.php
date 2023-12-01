@@ -2,12 +2,12 @@
   <main>
     <section class="masthead">
       <div>
-        <h1>Authentication & Working With Images</h1>
+        <h1>Sign In to the administration portal</h1>
       </div>
     </section>
     <section class="form-row row">
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <h3>Don't have an account, then sign up below!</h3>
+        <h3>Sign up</h3>
         <form method="post" action="save-admin.php">
           
         	<p><input class="form-control" name="first_name" type="text" placeholder="First Name" required/></p>
@@ -19,7 +19,7 @@
         </form>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <h3>Already have an account, then sign in below!</h3>
+        <h3>Sign in</h3>
         <form method="post" action="./inc/validate.php">
         	<p><input class="form-control" name="username" type="text" placeholder="Username" required /></p>
         	<p><input class="form-control" name="password" type="password" placeholder="Password" required /></p>

@@ -9,7 +9,7 @@
 	$confirm = $_POST['confirm'];
 	// validate inputs
 	$ok = true;
-	require './inc/header.php';
+	require './include/header.php';
 		if (empty($first_name)) {
 			echo '<p>First name required</p>';
 			$ok = false;
@@ -48,4 +48,4 @@
 			<a href="signin.php" class="btn btn-primary">Sign In</a>
 		</div>
 	</section> -->
-<?php require './inc/footer.php'; ?>
+<?php require './include/footer.php'; ?>

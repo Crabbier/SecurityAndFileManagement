@@ -34,4 +34,4 @@
             </div>
         </div>
     </main>
-    <?php require ('./include/footer.php'); ?>
+<?php require ('./include/footer.php'); ?>
