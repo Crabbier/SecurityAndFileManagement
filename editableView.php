@@ -1,7 +1,7 @@
 
 <!-- IF ADMINISTRATOR IS LOGGED IN WE SHOW THE INFORMATION -->
 <?php
-	require './include/header.php';
+	// require './include/header.php';
 	//check for authentication before we show any data
 	session_start();
 	if (!isset($_SESSION['user_id'])) {
@@ -11,7 +11,7 @@
 	else {
     
 	}
-	require './include/footer.php';
+	// require './include/footer.php';
 ?>
 <?php
   // Include database file
@@ -21,7 +21,7 @@
   // Delete record from table
   if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
     $deleteId = $_GET['deleteId'];
-    $customerObj->deleteRecord($deleteId);
+    $database->delete_product($deleteId);
   }
 ?>
 
