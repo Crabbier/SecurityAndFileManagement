@@ -13,27 +13,6 @@ include 'database.php';
 //Edit customer record
 if(!empty($_GET['editId'])) {
   $editId = $_GET['editId'];
-  $customer = $customerObj->displayRecordById($editId);
-}
-?>
-
-
-
-<?php
-
-// Include database file
-include 'database.php';
-
-//$customerObj = new database();
-
-// session_start(); // Start the session
-// if(isset($_SESSION['valueToPass'])){
-//     $value = $_SESSION['valueToPass']; // Retrieve the value from the session
-//     $customer = $customerObj->displayRecordById($value);
-// }
-//Edit customer record
-if(!empty($_GET['editId'])) {
-  $editId = $_GET['editId'];
   $product = $database->display_products_by_id($editId);
 }
 ?>
@@ -57,23 +36,23 @@ if(!empty($_GET['editId'])) {
               </div>
               <div class="form-group">
                 <label for="email">Color:</label>
-                <input type="email" class="form-control" name="pcolor" value="<?php echo $customer['email']; ?>" required="">
+                <input type="email" class="form-control" name="pcolor" value="<?php echo $product['color']; ?>" required="">
               </div>
               <div class="form-group">
                 <label for="salary">Category:</label>
-                <input type="text" class="form-control" name="pcategory" value="<?php echo $customer['salary']; ?>" required="">
+                <input type="text" class="form-control" name="pcategory" value="<?php echo $product['category']; ?>" required="">
               </div>
               <div class="form-group">
                 <label for="name">Brand:</label>
-                <input type="text" class="form-control" name="pbrand" value="<?php echo $product['name']; ?>" required="">
+                <input type="text" class="form-control" name="pbrand" value="<?php echo $product['brand']; ?>" required="">
               </div>
               <div class="form-group">
                 <label for="email">Description:</label>
-                <input type="email" class="form-control" name="pdesc" value="<?php echo $customer['email']; ?>" required="">
+                <input type="email" class="form-control" name="pdesc" value="<?php echo $product['description']; ?>" required="">
               </div>
               <div class="form-group">
                 <label for="salary">Date:</label>
-                <input type="text" class="form-control" name="update" value="<?php echo $customer['salary']; ?>" required="">
+                <input type="text" class="form-control" name="update" value="<?php echo $product['date']; ?>" required="">
               </div>
               <div class="form-group">
                 <input type="hidden" name="id" value="<?php echo $product['id']; ?>">

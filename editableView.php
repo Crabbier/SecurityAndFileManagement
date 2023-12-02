@@ -3,21 +3,21 @@
 <?php
 	// require './include/header.php';
 	//check for authentication before we show any data
-	session_start();
-	if (!isset($_SESSION['user_id'])) {
-		header('location:signin.php');
-		exit();
-	}
-	else {
+  // ///////////////////////////////////////////////////////////////////
+	// session_start();
+	// if (!isset($_SESSION['user_id'])) {
+	// 	header('location:signin.php');
+	// 	exit();
+	// }
+	// else {
     
-	}
+	// }
 	// require './include/footer.php';
 ?>
 <?php
   // Include database file
   require_once('database.php');
 	$res = $database->read_products();
-  //$customerObj = new database();
   // Delete record from table
   if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
     $deleteId = $_GET['deleteId'];
@@ -78,7 +78,7 @@
           ?>
           <tr>
             <td><?php echo $product['id']; ?></td>
-            <td><?php echo $product['name'], " ", $r['color']; ?></td>
+            <td><?php echo $product['name'], " ", $product['color']; ?></td>
             <td><?php echo $product['category'] ?></td>
             <td><?php echo $product['brand'] ?></td>
             <td><?php echo $product['description'] ?></td>
@@ -86,9 +86,8 @@
             <td>
               <button class="btn btn-danger"><a href="edit.php?editId=<?php echo $product['id'] ?>">
                   <i class="fa fa-pencil text-white" ></i></a></button>
-              <button class="btn btn-danger"><a href="index.php?deleteId=<?php echo $product['id'] ?>" onclick="return confirm('Are you sure?'); return false;">
-                  <i class="fa fa-trash text-white" ></i>
-                </a></button>
+              <button class="btn btn-danger"><a href="editableView.php?deleteId=<?php echo $product['id'] ?>" onclick="return confirm('Are you sure?'); return false;">
+                  <i class="fa fa-trash text-white" ></i></a></button>
             </td>
           </tr>
         <?php } }?>
