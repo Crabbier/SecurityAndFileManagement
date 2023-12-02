@@ -1,23 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>4Revolution | Add Our Data</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="shortcut icon" href="images/Logo4R.png" type="image/x-icon" />
-  </head>
-  <body id="add">
-    <header>
-        <img src="images/LogoWhite.png" height="50" alt="4Revolution Logo">
-        <nav>
-            <ul>
-                <li><a href="index.php" title="Promotion details">Add products</a></li>
-                <li><a href="view.php" title="Learn more about us">See products</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
+<?php 
+$pageTitle = 'ADD PRODUCTS';
+require ('./include/header.php'); 
+?>
     <?php
       // start by including our classes
       require_once('validate.php');
@@ -25,7 +9,7 @@
 
       // create our class objects
       $valid = new validate();
-
+      $uploadSuccess = false; 
       if($_SERVER["REQUEST_METHOD"] == "POST"){
         // using our escape_string function
         $date = $_POST['date'];
@@ -34,6 +18,11 @@
         $category = $_POST['category'];
         $brand = $_POST['brand'];
         $description = $_POST['description'];
+        $image_name = $_FILES['files']['name'][0];
+        $tmp_image = $_FILES['files']['tmp_name'][0];
+        $target_file = './uploads/'.$image_name;
+        move_uploaded_file($tmp_image, $target_file);
+      
         // using our functions found in our validate class 
         // (checkEmpty validAge validEmail)
         $msg = $valid->checkEmpty($_POST, array('date', 'name', 'color', 'category', 'brand', 'description'));
@@ -56,7 +45,7 @@
             echo "<a href='javascript:self.history.back();'>Go Back</a>";
         }else{
           // if all the fields are valid
-          $res = $database->create($date, $name, $color, $category, $brand, $description);
+          $res = $database->create_products($date, $name, $color, $category, $brand, $description, $image_name, $target_file);
           // let the user know that the record has been added
           if($res){
             echo "<p>Data added successfully.</p>";
@@ -69,8 +58,4 @@
 
     ?>
     </main>
-    <footer>
-        <p>Copyright © 2023 4Revolution store – 4Revolution Store.</p>
-    </footer>
-  </body>
-</html>
+    <?php require ('./include/footer.php'); ?>

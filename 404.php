@@ -1,7 +1,8 @@
 <?php
 // now we will add the value to the title variable and the description variable
-$title = "Erro 404 Page not found";
-$description = "This is our page that will handle all our 404 errors";
+
+$pageTitle = 'ADD NEW PRODUCTS';   
+    
 // now we need to add our header template
 require './include/header.php';
 ?>

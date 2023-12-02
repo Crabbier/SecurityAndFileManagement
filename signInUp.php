@@ -1,5 +1,7 @@
-<?php require ('./include/header.php'); ?>
-  <main>
+<?php 
+    $pageTitle = 'SIGN IN';
+    require ('./include/header.php'); 
+    ?>
     <section class="masthead">
       <div>
         <h1>Sign In to the administration portal</h1>
@@ -20,7 +22,7 @@
       </div>
       <div class="col-sm-12 col-md-6 col-lg-6">
         <h3>Sign in</h3>
-        <form method="post" action="./inc/validate.php">
+        <form method="post" action="validate_admin.php">
         	<p><input class="form-control" name="username" type="text" placeholder="Username" required /></p>
         	<p><input class="form-control" name="password" type="password" placeholder="Password" required /></p>
           <input class="btn btn-light" type="submit" value="Login" />

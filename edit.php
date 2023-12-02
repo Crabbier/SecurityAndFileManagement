@@ -1,5 +1,4 @@
 <?php
-
 // Include database file
 include 'database.php';
 
@@ -20,7 +19,10 @@ if(!empty($_GET['editId'])) {
 
 
 
-<?php require ('./include/header.php'); ?>
+<?php 
+    $pageTitle = 'EDIT RECORDS';
+    require ('./include/header.php'); 
+    ?>
   <section class="container">
     <div class="row">
       <div class="col-md-5 mx-auto">
@@ -35,24 +37,45 @@ if(!empty($_GET['editId'])) {
                 <input type="text" class="form-control" name="pname" value="<?php echo $product['name']; ?>" required="">
               </div>
               <div class="form-group">
-                <label for="email">Color:</label>
-                <input type="email" class="form-control" name="pcolor" value="<?php echo $product['color']; ?>" required="">
+                <label for="color" class="col-sm-2 control-label">Color:</label>
+                    <div>
+                    <select name="pcolor" class="form-control" value="<?php echo $product['color']; ?>">
+                    <option>Product Color</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Copper">Copper</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Red">Red</option>
+                    </select>
+                    </div>
               </div>
               <div class="form-group">
-                <label for="salary">Category:</label>
-                <input type="text" class="form-control" name="pcategory" value="<?php echo $product['category']; ?>" required="">
+                <label for="category" class="col-sm-2 control-label">Category:</label>
+                <div class="col-sm-10">
+                  <select name="pcategory" class="form-control" value="<?php echo $product['category']; ?>" required="">
+                    <option>Product Category</option>
+                    <option value="Quartz Watch">Quartz Watch</option>
+                    <option value="Mechanic Watch">Mechanic Watch</option>
+                    <option value="Automatic Watch">Automatic Watch</option>
+                    <option value="Necklace">Necklace</option>
+                    <option value="Bracelet">Bracelet</option>
+                    <option value="Ring">Ring</option>
+                  </select>
+                </div>
               </div>
               <div class="form-group">
-                <label for="name">Brand:</label>
+                <label for="brand">Brand:</label>
                 <input type="text" class="form-control" name="pbrand" value="<?php echo $product['brand']; ?>" required="">
               </div>
               <div class="form-group">
-                <label for="email">Description:</label>
-                <input type="email" class="form-control" name="pdesc" value="<?php echo $product['description']; ?>" required="">
+                <label for="description">Description:</label>
+                <input type="text" class="form-control" name="pdesc" value="<?php echo $product['description']; ?>" required="">
               </div>
               <div class="form-group">
-                <label for="salary">Date:</label>
-                <input type="text" class="form-control" name="update" value="<?php echo $product['date']; ?>" required="">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" name="date" value="<?php echo date('Y-m-d'); ?>"  required="">
               </div>
               <div class="form-group">
                 <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
@@ -62,20 +85,29 @@ if(!empty($_GET['editId'])) {
             <?php
             // Update Record in customer table
               if(!empty($_POST)) {
-                $date = $_POST['update'];
+                $date = $_POST['date'];
                 $name = $_POST['pname'];
                 $color = $_POST['pcolor'];
                 $category = $_POST['pcategory'];
                 $brand = $_POST['pbrand'];
                 $description = $_POST['pdesc'];
                 $id = $_POST['id'];
-                $database->update_product($date, $name, $color, $category, $brand, $description, $id);
-              }
+                $update = $database->update_product($date, $name, $color, $category, $brand, $description, $id);
+                
+                if($update) {
+                    header("Location: editableView.php?msg2=update");
+                    exit;
+                } else {
+                    echo "Registration updated failed try again!";
+                }
+            
+            }
             ?>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <?php require ('./include/header.php'); ?>
+</main>
+<?php require ('./include/footer.php'); ?>
   

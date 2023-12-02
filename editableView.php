@@ -12,7 +12,6 @@
 	// else {
     
 	// }
-	// require './include/footer.php';
 ?>
 <?php
   // Include database file
@@ -27,11 +26,10 @@
 
 <!-- EDIT - DELETE VIEW -->
 
-<?php require ('./include/header.php'); ?>
-  <header>
-    <h1>Full CRUD With OOP</h1>
-  </header>
-  <main class="container">
+<?php 
+    $pageTitle = 'ADMINISTRATOR MANAGEMENT';
+    require ('./include/header.php'); 
+    ?>
     <?php
       if (isset($_GET['msg1']) == "insert") {
       echo "<div class='alert alert-success alert-dismissible'>
@@ -54,7 +52,7 @@
     ?>
     <section>
       <h2>View Records
-      <a href="add.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a>
+      <a href="index.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a>
       </h2>
       <table class="table table-hover table-dark table-striped">
         <thead>
@@ -65,6 +63,7 @@
             <th>Brand</th>
             <th>Description</th>
             <th>Registration Date</th>
+            <th>Photo</th>
           </tr>
         </thead>
         <tbody>
@@ -83,6 +82,7 @@
             <td><?php echo $product['brand'] ?></td>
             <td><?php echo $product['description'] ?></td>
             <td><?php echo $product['date'] ?></td>
+            <td><?php echo $product['photo'] ?></td>
             <td>
               <button class="btn btn-danger"><a href="edit.php?editId=<?php echo $product['id'] ?>">
                   <i class="fa fa-pencil text-white" ></i></a></button>

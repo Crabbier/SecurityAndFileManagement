@@ -1,6 +1,7 @@
-<?php
-  require './include/header.php';
-?>
+<?php 
+    $pageTitle = 'SIGN IN';
+    require ('./include/header.php'); 
+    ?>
   <section class="signin-masthead">
     <div>
       <h3>Sign In</h3>
@@ -11,7 +12,7 @@
       <div class="col align-self-center">
         <h3>It Looks Like You Are Not Signed In!</h3>
         <p>Sign in below</p>
-        <form method="post" action="./inc/validate.php">
+        <form method="post" action="validate_admin.php">
           <p><input class="form-control" name="username" type="text" placeholder="Username" required /></p>
           <p><input class="form-control" name="password" type="password" placeholder="Password" required /></p>
           <input class="btn btn-primary" type="submit" value="Login" />

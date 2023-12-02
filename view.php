@@ -2,8 +2,10 @@
 	require_once('database.php');
 	$res = $database->read_products();
 ?>
-<?php require ('./include/header.php'); ?>
-    <main>
+<?php 
+    $pageTitle = 'VIEW PRODUCTS';
+    require ('./include/header.php'); 
+    ?>
         <div class="container">
             <div class="row">
                 <table class="table">
@@ -14,6 +16,7 @@
                         <th>Brand</th>
                         <th>Description</th>
                         <th>Registration Date</th>
+                        <th>Product Photo</th>
                     </tr>
                     <?php
 
@@ -26,6 +29,7 @@
                                 <td><?php echo $r['brand'] ?></td>
                                 <td><?php echo $r['description'] ?></td>
                                 <td><?php echo $r['date'] ?></td>
+                                <td><img src="<?=$r['image_route']?>" title="<?=$r['image_name'] ?>" class="img-view" height="100px"></td>
                             </tr>
                         <?php
                         }
