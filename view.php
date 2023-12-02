@@ -29,7 +29,7 @@
                                 <td><?php echo $r['brand'] ?></td>
                                 <td><?php echo $r['description'] ?></td>
                                 <td><?php echo $r['date'] ?></td>
-                                <td><img src="<?=$r['image_route']?>" title="<?=$r['image_name'] ?>" class="img-view" height="100px"></td>
+                                <td><img src="<?=$r['image_route']?>" title="<?=$r['image_name'] ?>" class="img-view" height="100px" border-radius="30%"></td>
                             </tr>
                         <?php
                         }

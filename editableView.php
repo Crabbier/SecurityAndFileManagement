@@ -82,7 +82,7 @@
             <td><?php echo $product['brand'] ?></td>
             <td><?php echo $product['description'] ?></td>
             <td><?php echo $product['date'] ?></td>
-            <td><?php echo $product['photo'] ?></td>
+            <td><img src="<?=$product['image_route']?>" title="<?=$product['image_name'] ?>" class="img-view" height="100px" border-radius="30%"></td>
             <td>
               <button class="btn btn-danger"><a href="edit.php?editId=<?php echo $product['id'] ?>">
                   <i class="fa fa-pencil text-white" ></i></a></button>

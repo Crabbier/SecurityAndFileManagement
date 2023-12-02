@@ -98,7 +98,7 @@
 		  echo '<h3>Admin Saved</h3>';
 		  echo '</div>';
     	echo '</section>';
-		  header("Location: signin.php");
+		  // header("Location: signin.php");
     } else {
       echo '<h3>Error<h3>';
     }

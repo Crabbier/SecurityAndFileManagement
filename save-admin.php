@@ -2,7 +2,7 @@
 	// connection
 	require 'database.php';
     $pageTitle = 'SAVE ADMINISTRATOR';
-    require ('./include/header.php'); 
+    // require ('./include/header.php'); 
     
 	// variables
 	$first_name = $_POST['first_name'];

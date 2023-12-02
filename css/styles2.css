@@ -207,13 +207,16 @@ footer {
     display: grid;
     place-items: center;
     color: rgb(255, 255, 255);
-    text-shadow: 0px 0px 20px #000000;
+    text-shadow: 0px 0px 20px #ff0202;
     padding-top: 20px;
+    font-family: 'custom8';
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(255, 0, 0);
 }
 
 #middle {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .form-register {
